@@ -1,6 +1,11 @@
-env\Scripts\activate   (windows)
+env\Scripts\activate   (windows) or
 source env/bin/activate (mac)
 pip install -r requirements.txt
+python manage.py runserver
+
+
+
+
 
 
 Python -m venv env
