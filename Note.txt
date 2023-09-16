@@ -1,6 +1,6 @@
 env\Scripts\activate   (windows)
-source env/bin/activate (mac)
-pip install -r requirements.txt
+source env/Scripts/activate (mac)
+pip install -r requirment.txt
 
 
 Python -m venv env
