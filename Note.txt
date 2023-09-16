@@ -1,0 +1,10 @@
+env\Scripts\activate   (windows)
+source env/bin/activate (mac)
+pip install -r requirements.txt
+
+
+Python -m venv env
+env\Scripts\activate   (windows)
+source env/bin/activate (mac)
+ pip install Django
+python manage.py runserver
