@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 env\Scripts\activate   (windows)
 source env/Scripts/activate (mac)
 pip install -r requirment.txt
