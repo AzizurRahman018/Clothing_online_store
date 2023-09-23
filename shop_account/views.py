@@ -1,9 +1,11 @@
 from django.shortcuts import render
 
-# Create your views here.
-# def LOGIN(request):
-#
-#     return render(request,'templates/Accounts/')
-# def LOGIN(request):
-#
-#     return render(request,'templates/Accounts/')
+def LOGIN(request):
+
+    return render(request,'Accounts/login.html')
+def Reg(request):
+
+    return render(request,'Accounts/reg.html')
+def Reset(request):
+
+    return render(request,'Accounts/reset.html')
