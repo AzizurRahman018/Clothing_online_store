@@ -1,5 +1,69 @@
 {% extends 'base.html' %}
 {% block title %}Reg{% endblock %}
 {% block body %}
-<h1>This is reg  page </h1>
+<section class="main-container col1-layout">
+    <div class="main container">
+            {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                          <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+            {% endif %}
+
+      <div class="account-login">
+        <div class="page-title">
+          <h2>Register Account</h2>
+        </div>
+        <fieldset>
+          <div class="registered-users"><strong>Customer Registration Form</strong>
+            <div class="content">
+              <p>If you have an account with us, ple
+                ase log in.</p>
+              <button class="button login"><a href="{% url 'login' %}">Login</a></button>
+
+              <form method="POST">
+                {% csrf_token %}
+              <ul class="form-list">
+                <li>
+                  <label >First Name <span class="required">*</span></label>
+                  <input type="text" title="Email Address" class="input-text required-entry"  value="" name="first">
+                </li>
+                <li>
+                  <label >Last Name <span class="required">*</span></label>
+                  <input type="text" title="Email Address" class="input-text required-entry"  value="" name="last">
+                </li>
+                <li>
+                  <label >User Name <span class="required">*</span></label>
+                  <input type="text" title="Email Address" class="input-text required-entry"  value="" name="username">
+                </li>
+                <li>
+                  <label >Email Address <span class="required">*</span></label>
+                  <input type="email" title="Email Address" class="input-text required-entry"  value="" name="email">
+                </li>
+                <li>
+                  <label >Password <span class="required">*</span></label>
+                  <input type="password" title="Password" class="input-text required-entry validate-password" name="pass">
+                </li>
+                <li>
+                  <label > Retype Password <span class="required">*</span></label>
+                  <input type="password" title="Password"  class="input-text required-entry validate-password" name="pass1">
+                </li>
+              </ul>
+              <p class="required">* Required Fields</p>
+              <div class="buttons-set">
+                <button id="send2" name="send" type="submit" class="button login"><span>Register</span></button>
+                <a class="forgot-word" href="forgot-password.html">Forgot Your Password?</a> </div>
+              </form>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </div>
+  </section>
   {% endblock %}

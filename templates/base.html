@@ -307,7 +307,8 @@
                     <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>
                     <li><a title="Checkout" href="checkout.html">Checkout</a></li>
                     <li><a title="Track Order" href="track-order.html">Track Order</a></li>
-                    <li><a title="Log In" href="login.html">Log In</a></li>
+                    <li><a title="Log In" href="{% url 'login' %}">Log In</a></li>
+                    <li><a title="Registration" href="{% url 'reg' %}">Registration</a></li>
                   </ul>
                 </div>
               </div>
@@ -387,7 +388,7 @@
     <div class="footer-bottom">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12 col-xs-12 coppyright text-center">© 2018 Fabulous, All rights reserved.</div>
+          <div class="col-sm-12 col-xs-12 coppyright text-center"> Fabulous, All rights reserved.</div>
         </div>
       </div>
     </div>
