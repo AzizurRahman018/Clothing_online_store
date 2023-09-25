@@ -1,9 +1,27 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User
+
+from django.contrib.auth import authenticate,login,logout
 from django.contrib import messages
 def LOGIN(request):
+    if request.method == 'POST':
+        Username = request.POST.get('username')
+        Pass = request.POST.get('password')
+        if len(Pass)==0:
+            messages.warning(request, "No password Found")
+            return redirect('login')
+
+        user= authenticate( username=Username ,password= Pass )
+        if user is not None:
+            login(request,user)
+            return redirect('home')
 
     return render(request,'Accounts/login.html')
+
+def LOGOUT(request):
+    logout(request)
+    messages.warning(request, "you are loggout")
+    return redirect('login')
 def Reg(request):
     if request.method =='POST':
         First_name=request.POST.get('first')
