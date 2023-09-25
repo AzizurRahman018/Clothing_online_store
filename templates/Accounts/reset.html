@@ -1,5 +1,60 @@
 {% extends 'base.html' %}
 {% block title %}reset{% endblock %}
 {% block body %}
-<h1>This is reset  page </h1>
+<section class="main-container col1-layout">
+    <div class="main container">
+        <div class="account-login">
+            <div class="page-title">
+                <h2>Password Reser Form</h2>
+            </div>
+            <fieldset>
+                <div class="registered-users">
+                    {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="content">
+
+                            <ul class="form-list">
+
+                                <li>
+                                    <label for="email"> Email <span class="required">*</span></label>
+                                    <input type="email" title="email" class="input-text required-entry" id="username"
+                                           value="" name="email">
+                                </li>
+                                <li>
+                                    <label for="pass">New Password <span class="required">*</span></label>
+                                    <input type="password" title="Password" id="pass"
+                                           class="input-text required-entry validate-password" name="password">
+                                </li>
+                                <li>
+                                    <label for="pass">Retype Password <span class="required">*</span></label>
+                                    <input type="password" title="Password" id="pass1"
+                                           class="input-text required-entry validate-password" name="password1">
+                                </li>
+                                <div class="buttons-set">
+                                    <button id="send2" name="send" type="submit" class="button login"><span>submit</span>
+                                    </button>
+                                </div>
+                            </ul>
+
+                        </div>
+
+                    </form>
+                </div>
+            </fieldset>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
+</section>
   {% endblock %}

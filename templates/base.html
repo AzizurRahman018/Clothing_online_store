@@ -307,8 +307,17 @@
                     <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>
                     <li><a title="Checkout" href="checkout.html">Checkout</a></li>
                     <li><a title="Track Order" href="track-order.html">Track Order</a></li>
+
+                    {% if user.is_authenticated %}
+                    <li><a title="Logout" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
                     <li><a title="Log In" href="{% url 'login' %}">Log In</a></li>
                     <li><a title="Registration" href="{% url 'reg' %}">Registration</a></li>
+                    {% endif %}
+                    <li><a title="Forget Pass" href="{% url 'reset' %}">Forget Pass</a></li>
+
+
+
                   </ul>
                 </div>
               </div>

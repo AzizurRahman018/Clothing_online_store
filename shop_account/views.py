@@ -48,11 +48,26 @@ def Reg(request):
                       user=User.objects.create(first_name=First_name,last_name=Last_name,username=Username,email=Email,password=Pass)
                       user.set_password(Pass)
                       user.save()
+                      return redirect('login')
                 # print(First_name,Last_name,Username,Email,Pass,Pass1)
                     else:
                         messages.warning(request, "Your given password not matched")
 
     return render(request,'Accounts/reg.html')
 def Reset(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        Pass = request.POST.get('password')
+        Pass1 = request.POST.get('password1')
+        # if User.objects.filter(username=user_name).exists():
+        if User.objects.filter(email=email):
+            messages.warning(request, "Your user Found")
+            user = User.objects.get(email=email)
+
+            if Pass == Pass1:
+                user.set_password(Pass)
+                user.save()
+                messages.success(request, "Password reset successful. You can now log in with your new password.")
+                return redirect('login')
 
     return render(request,'Accounts/reset.html')

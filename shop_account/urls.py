@@ -4,5 +4,6 @@ urlpatterns = [
 path('login/',LOGIN,name='login'),
 path('reg/',Reg,name='reg'),
 path('reset/',Reset,name='reset'),
-path('logout/',LOGOUT,name='logout')
+path('logout/',LOGOUT,name='logout'),
+
 ]
