@@ -50,7 +50,7 @@
                                 <h3><a href="shop-grid-sidebar.html">{{subcata.title}}</a></h3>
                                 <ul class="nav">
                                   {% for sub_sub_cata in subcata.super_subcategory_set.all %}
-                                  <li>{{sub_sub_cata.title}}</a></li>
+                                  <li><a href="{% url 'super_sub_prod' sub_sub_cata.id %}" >{{sub_sub_cata.title}}</a></li>
                                   {% endfor %}
                                 </ul>
                                 <br>
@@ -91,8 +91,9 @@
             <div class="jtv-header-box">
               <div class="search_cart_block">
                 <div class="search-box hidden-xs">
-                  <form id="search_mini_form" action="#" method="get">
-                    <input id="search" type="text" name="q" value="" class="searchbox" placeholder="Search entire store here..." maxlength="128">
+                  <form id="search_mini_form" action="#" method="GET">
+
+                    <input id="search" type="text" value="" class="searchbox" placeholder="Search entire store here..." maxlength="128" name="search">
                     <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
                   </form>
                 </div>
