@@ -22,8 +22,13 @@ def Home(request):
                    'deals_of_the_day': deals_of_the_day})
 def super_sub_prod(request, id):
     prod = Product.objects.filter(super_sub_Category=id)
+
     print(prod)
     slides = Slider.objects.all()
 
 
+
     return render(request, 'Product/super_sub_prod.html',{'prod': prod,'slides': slides })
+def Material(request,id):
+    ClothingMaterial1 = Product.objects.filter(Clothing_Material=id)
+    return render(request,'Product/super_sub_prod.html',{'ClothingMaterial1':ClothingMaterial1})

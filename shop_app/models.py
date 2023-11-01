@@ -30,6 +30,12 @@ class SIZE(models.Model):
 
     def __str__(self):
         return str(self.title)
+class ClothingMaterial(models.Model):
+
+    title = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str(self.title)
 
 class COLOR(models.Model):
 
@@ -68,6 +74,7 @@ class Product(models.Model):
     prev_price = models.DecimalField(decimal_places=2, max_digits=10)
     short_description = models.TextField()
     color = models.ManyToManyField(COLOR)
+    Clothing_Material =models.ManyToManyField(ClothingMaterial)
     size = models.ManyToManyField(SIZE)
     top_seller = models.BooleanField(default=False)
     deals_of_the_day = models.BooleanField(default=False)

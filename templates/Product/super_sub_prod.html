@@ -70,9 +70,7 @@
                     </div>
                 </div>
                 <article class="col-main">
-                    <div class="page-title">
-                        <h2>Clothing</h2>
-                    </div>
+
                     <div class="toolbar">
                         <div class="sorter">
                             <div class="view-mode"><span title="Grid"
@@ -119,10 +117,11 @@
                                                                       title="Product tilte is here"
                                                                       href="product-detail.html"> <img
                                                 alt="Product tilte is here" src="{{i.image.url}}"> </a>
-                                            <div class="new-label new-top-left">new</div>
-                                            <div class="sale-label sale-top-right">sale</div>
-                                            <div class="mask-shop-white"></div>
-                                            <div class="new-label new-top-left">new</div>
+
+                                            {% for j in i.condition.all %}
+
+                                            <div class="new-label new-top-left">{{j.title}}</div>
+                                            {% endfor %}
                                             <a class="quickview-btn" href="quick-view.html"><span>Quick View</span></a>
                                             <a href="wishlist.html">
                                                 <div class="mask-left-shop"><i class="fa fa-heart"></i></div>
@@ -191,66 +190,23 @@
 
 
                             <dt class="odd">Clothing Material</dt>
+                            {% for i in Clothing_mate %}
                             <dd class="odd">
                                 <ol class="bag-material">
                                     <li>
+                                       {% for j in i.Clothing_Material.all %}
                                         <div class="pretty p-icon p-smooth">
                                             <input type="checkbox" name="Material" value="Cotton"/>
                                             <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Cotton</label>
+                                                <label>{{j.title}}</label>
                                             </div>
                                         </div>
+                                       {% endfor %}
                                     </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Denim"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Denim</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Linen"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Linen</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Rayon"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Rayon</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Synthetic"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Synthetic</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Satin"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Satin</label>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="pretty p-icon p-smooth">
-                                            <input type="checkbox" name="Material" value="Silk"/>
-                                            <div class="state p-success"><i class="icon fa fa-check"></i>
-                                                <label>Silk</label>
-                                            </div>
-                                        </div>
-                                    </li>
+
                                 </ol>
                             </dd>
+                             {% endfor %}
                             <dt class="odd">Size</dt>
                             <div class="size-area">
                                 <div class="size">
