@@ -1,64 +1,69 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+
 # Create your models here.
-class Slider (models.Model):
-    title= models.CharField(max_length=50)
-    title1= models.CharField(max_length=50)
-    description= models.TextField()
-    button_tag= models.CharField(max_length=20)
-    image= models.ImageField(upload_to='slider_image/')
+class Slider(models.Model):
+    title = models.CharField(max_length=50)
+    title1 = models.CharField(max_length=50)
+    description = models.TextField()
+    button_tag = models.CharField(max_length=20)
+    image = models.ImageField(upload_to='slider_image/')
 
     def __str__(self):
         return str(self.title)
+
 
 class Category(models.Model):
-
     title = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.title)
+
 
 class CONDITION(models.Model):
-
     title = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.title)
+
+
 class SIZE(models.Model):
-
     title = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.title)
+
+
 class ClothingMaterial(models.Model):
-
     title = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.title)
+
 
 class COLOR(models.Model):
-
     title = models.CharField(max_length=50)
 
     def __str__(self):
         return str(self.title)
 
-class SubCategory(models.Model):
 
+class SubCategory(models.Model):
     title = models.CharField(max_length=50)
-    Catagory= models.ForeignKey(Category, on_delete=models.CASCADE)
+    Catagory = models.ForeignKey(Category, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(f' {self.title},{self.Catagory}')
 
-class Super_SubCategory(models.Model):
 
+class Super_SubCategory(models.Model):
     title = models.CharField(max_length=50)
-    SubCategory= models.ForeignKey(SubCategory, on_delete=models.CASCADE)
+    SubCategory = models.ForeignKey(SubCategory, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(f'{self.title},{self.SubCategory}')
+
 
 class Product(models.Model):
     posted_by = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -74,7 +79,7 @@ class Product(models.Model):
     prev_price = models.DecimalField(decimal_places=2, max_digits=10)
     short_description = models.TextField()
     color = models.ManyToManyField(COLOR)
-    Clothing_Material =models.ManyToManyField(ClothingMaterial)
+    Clothing_Material = models.ManyToManyField(ClothingMaterial)
     size = models.ManyToManyField(SIZE)
     top_seller = models.BooleanField(default=False)
     deals_of_the_day = models.BooleanField(default=False)
@@ -89,12 +94,12 @@ class Product(models.Model):
 
     def __str__(self):
         return str(self.title)
+
+
 class Cart(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quentity =models.PositiveIntegerField(default=1)
-
-
+    user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE,null=True)
+    quantity = models.PositiveIntegerField(default=1)
 
     def __str__(self):
         return str(f'{self.user} Cart')
