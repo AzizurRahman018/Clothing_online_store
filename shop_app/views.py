@@ -67,3 +67,6 @@ def add_to_cart(request, id):
             cart = Cart.objects.create(user=user, product=prod)
             cart.save()
             return redirect('home')
+def cart_page(request):
+
+    return render(request,'Product/cart.html')

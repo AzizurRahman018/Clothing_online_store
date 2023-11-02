@@ -119,9 +119,10 @@
 
                             </ul>
                               {% endfor %}
-                            <div class="actions"> <a href="shopping-cart.html" class="view-cart"><span>View Cart</span></a>
+                            <div class="actions"> <a href="{% url 'cart_page' %}" class="view-cart"><span>View Cart</span></a>
                               <button onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
                             </div>
+
                           </div>
                         </div>
                       </div>
