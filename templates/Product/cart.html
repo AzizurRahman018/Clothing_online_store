@@ -22,6 +22,9 @@
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in active" id="cart">
                   <!-- cart are start-->
+
+
+
                   <div class="cart-page-area">
                     <form method="post" action="#">
                       <div class="table-responsive">
@@ -37,78 +40,27 @@
                             </tr>
                           </thead>
                           <tbody>
+                          {% for i in cart  %}
                             <tr class="cart_item">
-                              <td class="item-img"><a href="#"><img src="images/products/product-fashion-1.jpg" alt="Product tilte is here "> </a></td>
-                              <td class="item-title"><a href="#">Product tilte is here </a></td>
-                              <td class="item-price"> $129.00 </td>
+                              <td class="item-img"><a href=""><img src="{{i.product.image.url}}" alt="Product tilte is here "> </a></td>
+                              <td class="item-title"><a href="#">{{i.product.title}} </a></td>
+                              <td class="item-price"> {{i.product.current_price}} </td>
                               <td class="item-qty"><div class="cart-quantity">
                                   <div class="product-qty">
                                     <div class="cart-quantity">
                                       <div class="cart-plus-minus">
-                                        <div class="dec qtybutton">-</div>
-                                        <input value="2" name="qtybutton" class="cart-plus-minus-box" type="text">
-                                        <div class="inc qtybutton">+</div>
+                                        <div class="dec qtybutton"><a href="{% url 'decries' i.product.id %}">-</a></div>
+                                        <input value="{{i.quantity}}" name="qtybutton" class="cart-plus-minus-box" type="text">
+                                        <div class="inc qtybutton"><a href="{% url 'increase' i.product.id %}">+</a></div>
                                       </div>
                                     </div>
                                   </div>
                                 </div></td>
-                              <td class="total-price"><strong> $258.00</strong></td>
-                              <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                              <td class="total-price"><strong>{{i.total_price}}</strong></td>
+                              <td class="remove-item"><a href="{% url 'cart_remove' i.id %}"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
-                            <tr class="cart_item">
-                              <td class="item-img"><a href="#"><img src="images/products/product-fashion-1.jpg" alt="Product tilte is here "> </a></td>
-                              <td class="item-title"><a href="#">Product tilte is here </a></td>
-                              <td class="item-price"> $139.00 </td>
-                              <td class="item-qty"><div class="cart-quantity">
-                                  <div class="product-qty">
-                                    <div class="cart-quantity">
-                                      <div class="cart-plus-minus">
-                                        <div class="dec qtybutton">-</div>
-                                        <input value="1" name="qtybutton" class="cart-plus-minus-box" type="text">
-                                        <div class="inc qtybutton">+</div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div></td>
-                              <td class="total-price"><strong> $139.00</strong></td>
-                              <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr class="cart_item">
-                              <td class="item-img"><a href="#"><img src="images/products/product-fashion-1.jpg" alt="Product tilte is here "> </a></td>
-                              <td class="item-title"><a href="#">Product tilte is here </a></td>
-                              <td class="item-price"> $99.00 </td>
-                              <td class="item-qty"><div class="cart-quantity">
-                                  <div class="product-qty">
-                                    <div class="cart-quantity">
-                                      <div class="cart-plus-minus">
-                                        <div class="dec qtybutton">-</div>
-                                        <input value="1" name="qtybutton" class="cart-plus-minus-box" type="text">
-                                        <div class="inc qtybutton">+</div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div></td>
-                              <td class="total-price"><strong> $99.00</strong></td>
-                              <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
-                            <tr class="cart_item">
-                              <td class="item-img"><a href="#"><img src="images/products/product-fashion-1.jpg" alt="Product tilte is here "> </a></td>
-                              <td class="item-title"><a href="#">Product tilte is here </a></td>
-                              <td class="item-price"> $79.00 </td>
-                              <td class="item-qty"><div class="cart-quantity">
-                                  <div class="product-qty">
-                                    <div class="cart-quantity">
-                                      <div class="cart-plus-minus">
-                                        <div class="dec qtybutton">-</div>
-                                        <input value="1" name="qtybutton" class="cart-plus-minus-box" type="text">
-                                        <div class="inc qtybutton">+</div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div></td>
-                              <td class="total-price"><strong> $79.00</strong></td>
-                              <td class="remove-item"><a href="#"><i class="fa fa-trash-o"></i></a></td>
-                            </tr>
+                            {% endfor %}
+
                           </tbody>
                         </table>
                       </div>
@@ -138,8 +90,8 @@
                                 <h3>Cart Totals</h3>
                               </div>
                               <div class="sub-shipping">
-                                <p>Subtotal <span>$575.00</span></p>
-                                <p>Shipping <span>$75.00</span></p>
+                                <p>Subtotal <span>{{total}}</span></p>
+                                <p>Shipping <span>75.00 Tk</span></p>
                               </div>
                               <div class="shipping-method text-right">
                                 <div class="shipp">
@@ -153,7 +105,7 @@
                                 <p><a href="#">Calculate Shipping</a></p>
                               </div>
                               <div class="process-cart-total">
-                                <p>Total <span>$500.00</span></p>
+                                <p>Total <span>{{shiping_cost}}</span></p>
                               </div>
                               <div class="process-checkout-btn text-right">
                                 <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
@@ -164,6 +116,9 @@
                       </div>
                     </form>
                   </div>
+
+
+
                   <!-- cart are end-->
                 </div>
                 <div role="tabpanel" class="tab-pane  fade in " id="checkout">
