@@ -58,13 +58,13 @@
                               {% endfor %}
 
 
-                              <div class="col-md-4 has-sep hidden-sm">
-                                <div class="custom-menu-right">
-                                  <div class="box-banner media">
-                                    <div class="add-right"><a href="#"><img src="{% static 'images/jtv-menu-banner1.jpg' %}" class="img-responsive" alt="New Arrive"></a></div>
-                                  </div>
-                                </div>
-                              </div>
+<!--                              <div class="col-md-4 has-sep hidden-sm">-->
+<!--                                <div class="custom-menu-right">-->
+<!--&lt;!&ndash;                                  <div class="box-banner media">&ndash;&gt;-->
+<!--&lt;!&ndash;                                    <div class="add-right"><a href="#"><img src="{% static 'images/jtv-menu-banner1.jpg' %}" class="img-responsive" alt="New Arrive"></a></div>&ndash;&gt;-->
+<!--&lt;!&ndash;                                  </div>&ndash;&gt;-->
+<!--                                </div>-->
+<!--                              </div>-->
                             </div>
                             <br>
                             <a href="#" class="ads"><img src="{% static 'images/jtv-menu-banner4.jpg' %}" alt="Mega Sale" class="img-responsive"></a> </div>
@@ -158,7 +158,7 @@
                 <div class="toplinks">
                   <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i class="fa fa-phone"></i> <strong>Hotline:</strong> +1 123 456 7890</a> <a href="mailto:support@example.com"><i class="fa fa-envelope"></i> support@example.com</a> </div>
                   <ul class="links">
-                    <li><a title="My Account" href="my-account.html">My Account</a></li>
+                    <li><a title="My Account" href="{% url 'user_desh' %}">My Account</a></li>
                     <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>
                     <li><a title="Checkout" href="checkout.html">Checkout</a></li>
                     <li><a title="Track Order" href="track-order.html">Track Order</a></li>

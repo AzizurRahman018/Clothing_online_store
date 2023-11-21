@@ -12,9 +12,12 @@ def LOGIN(request):
             return redirect('login')
 
         user= authenticate( username=Username ,password= Pass )
-        if user is not None:
-            login(request,user)
-            return redirect('home')
+        if user:
+            login(request, user)
+            return redirect('user_desh')
+        if Pass != User.password:
+            messages.warning(request, "your password is incorect")
+            return redirect('login')
 
     return render(request,'Accounts/login.html')
 
@@ -71,3 +74,6 @@ def Reset(request):
                 return redirect('login')
 
     return render(request,'Accounts/reset.html')
+
+def user_desh(request):
+    return render(request, 'Accounts/user-desh.html')
