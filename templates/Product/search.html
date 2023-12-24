@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+</head>
+<body>
+
+<form action="get">
+{{ form.as_p }}
+<button>submit</button>
+
+<ul>
+    {% for i in prod %}
+    <li>
+    {{i.title}}
+    </li>
+    {% endfor %}
+</ul>
+
+
+
+</form>
+
+
+
+</body>
+</html>

@@ -17,3 +17,4 @@ admin.site.register(Category)
 admin.site.register(COLOR)
 admin.site.register(Super_SubCategory)
 admin.site.register(Cart)
+

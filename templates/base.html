@@ -91,8 +91,7 @@
             <div class="jtv-header-box">
               <div class="search_cart_block">
                 <div class="search-box hidden-xs">
-                  <form id="search_mini_form" action="#" method="GET">
-
+                  <form id="search_mini_form" action="#" method="get">
                     <input id="search" type="text" value="" class="searchbox" placeholder="Search entire store here..." maxlength="128" name="search">
                     <button type="submit" title="Search" class="search-btn-bg" id="submit-button"><span class="hidden-sm">Search</span><i class="fa fa-search hidden-xs hidden-lg hidden-md"></i></button>
                   </form>
@@ -106,7 +105,7 @@
                             <div class="block-subtitle">
                               <div class="top-subtotal">{{len_user}} items, <span class="price">{{total}} Tk</span></div>
                             </div>
-                            {% for i in carts %}
+                            {% for i in cart %}
                             <ul class="mini-products-list" id="cart-sidebar">
                               <li class="item">
                                 <div class="item-inner"><a class="product-image" title="product tilte is here" href="product-detail.html"><img alt="product tilte is here" src="{{i.product.image.url}}"></a>
@@ -120,7 +119,7 @@
                             </ul>
                               {% endfor %}
                             <div class="actions"> <a href="{% url 'cart_page' %}" class="view-cart"><span>View Cart</span></a>
-                              <button onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>
+<!--                              <button onclick="window.location.href='checkout.html'" class="btn-checkout" title="Checkout" type="button"><span>Checkout</span></button>-->
                             </div>
 
                           </div>
@@ -156,12 +155,12 @@
               </div>
               <div class="top_section hidden-xs">
                 <div class="toplinks">
-                  <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i class="fa fa-phone"></i> <strong>Hotline:</strong> +1 123 456 7890</a> <a href="mailto:support@example.com"><i class="fa fa-envelope"></i> support@example.com</a> </div>
+                  <div class="site-dir hidden-xs"> <a class="hidden-sm" href="#"><i class="fa fa-phone"></i> <strong>Hotline:</strong> +8801878407210</a> <a href="mailto:support@example.com"><i class="fa fa-envelope"></i> support@example.com</a> </div>
                   <ul class="links">
                     <li><a title="My Account" href="{% url 'user_desh' %}">My Account</a></li>
-                    <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>
-                    <li><a title="Checkout" href="checkout.html">Checkout</a></li>
-                    <li><a title="Track Order" href="track-order.html">Track Order</a></li>
+<!--                    <li><a title="My Wishlist" href="wishlist.html">Wishlist</a></li>-->
+<!--                    <li><a title="Checkout" href="checkout.html">Checkout</a></li>-->
+<!--                    <li><a title="Track Order" href="track-order.html">Track Order</a></li>-->
 
                     {% if user.is_authenticated %}
                     <li><a title="Logout" href="{% url 'logout' %}">Logout</a></li>
@@ -199,7 +198,7 @@
               <i class="fa fa-location-arrow"></i> <span>Company, 12/34 - West 21st Street,<br>
               New York, USA</span>
               </address>
-              <div class="phone-footer"><i class="fa fa-phone"></i> +1 123 456 98765</div>
+              <div class="phone-footer"><i class="fa fa-phone"></i> +8801878407210</div>
               <div class="email-footer"><i class="fa fa-envelope"></i> <a href="mailto:support@example.com">support@example.com</a> </div>
             </div>
           </div>

@@ -19,7 +19,7 @@
               <div class="text-center">
                 <ul class="nav jtv-heading-style" role="tablist">
                   <li role="presentation" class="active"><a href="#cart" aria-controls="cart" role="tab" data-toggle="tab">1 Shopping cart</a></li>
-                  <li role="presentation" class=""><a href="#complete-order" aria-controls="complete-order" role="tab" data-toggle="tab">2 Complete Order</a></li>
+                  <li role="presentation" class=""><a href="#complete-order" aria-controls="complete-order" role="tab" data-toggle="tab">Proceed to Checkout</a></li>
                 </ul>
               </div>
             </div>
@@ -114,7 +114,7 @@
                                 <p>Total <span>{{shiping_cost}}</span></p>
                               </div>
                               <div class="process-checkout-btn text-right">
-                                <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><span>Proceed to Checkout</span></button>
+<!--                                <button class="button btn-proceed-checkout" title="Proceed to Checkout" type="button"><a  href="{% url 'payment' %}"><span>Proceed to Checkout</span></a></button>-->
                               </div>
                             </div>
                           </div>
@@ -195,7 +195,7 @@
                                   <label for="pay-toggle04">SSL Commmerz</label>
                                 </div>
                               </div>
-                              <div class="input-box"> <a class="btn-def btn2" href="#">Place order</a> </div>
+                              <div class="input-box"> <a class="btn-def btn2" href="{% url 'payment' %}">Place order</a> </div>
                             </form>
                           </div>
                         </div>
